@@ -1,17 +1,24 @@
 name: Publish Plugin
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      branch:
+        type: string
+        description: 'Input Branch'
+        required: true
+        default: 'master'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          fetch-depth: 0
 
       - name: Set up JDK
         uses: actions/setup-java@v3
