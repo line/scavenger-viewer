@@ -1,0 +1,47 @@
+<!--
+Copyright 2024 LY Corporation
+
+LY Corporation licenses this file to you under the Apache License,
+version 2.0 (the "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at:
+
+  https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+-->
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.linecorp.cse.scavenger-viewer</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Scavenger Viewer</name>
+    <version>1.0</version>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor>LY Corporation</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description>An Intellij IDEA Plugin that integrate method invocation information collected by Scavenger Collector into Intellij IDEA by highlights them in code editor.</description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.kotlin</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Scavenger" anchor="right"
+                    factoryClass="com.linecorp.cse.scavenger.window.ScavengerToolWindowFactory"/>
+        <notificationGroup id="scavenger-setting-completed-notification" displayType="BALLOON"/>
+        <notificationGroup id="scavenger-snapshot-selected-notification" displayType="BALLOON"/>
+        <postStartupActivity implementation="com.linecorp.cse.scavenger.window.FileSelectionActivity"/>
+    </extensions>
+</idea-plugin>
