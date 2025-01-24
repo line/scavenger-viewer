@@ -13,8 +13,8 @@ An Intellij IDEA Plugin that integrate method invocation information collected b
 - Search `Scavenger Viewer` and install
 - Set `scavenger collector` URL and select `project` & `snapshot`
 
-<img width="800" alt="스크린샷 2024-11-20 오후 1 19 45" src="https://git.linecorp.com/storage/user/2941/files/60a67f6f-2ea4-4ecb-a196-17553c8804aa">
-<img width="800" alt="스크린샷 2024-11-20 오후 1 10 06" src="https://git.linecorp.com/storage/user/2941/files/b7b04ec8-807f-42d7-87e1-2bd88c9b433c">
+<img width="800" alt="스크린샷 2024-11-20 오후 1 19 45" src="https://github.com/user-attachments/assets/fcafa4ef-ca2a-42a5-aca0-197bd3880294">
+<img width="800" alt="스크린샷 2024-11-20 오후 1 10 06" src="https://github.com/user-attachments/assets/ed50d5ba-477b-4bb7-86dd-4480b22c2eca">
 
 ## Contributing
 
