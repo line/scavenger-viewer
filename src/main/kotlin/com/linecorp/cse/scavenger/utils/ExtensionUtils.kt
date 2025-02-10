@@ -30,6 +30,10 @@ fun Long.epochMillis2LocalDateTime(): LocalDateTime {
     return LocalDateTime.ofInstant(Instant.ofEpochMilli(this), scavengerPluginDefaultTimeZone)
 }
 
+fun LocalDateTime.toEpochMilli(): Long {
+    return atZone(scavengerPluginDefaultTimeZone).toInstant().toEpochMilli()
+}
+
 fun concatenateStrings(vararg args: String): String {
     return args.filter { it.isNotEmpty() }.joinToString(",")
 }
