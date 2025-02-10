@@ -24,10 +24,11 @@ import com.linecorp.cse.scavenger.domain.Customer
 import com.linecorp.cse.scavenger.domain.Snapshot
 import com.linecorp.cse.scavenger.domain.SnapshotNode
 import com.linecorp.cse.scavenger.logging.LoggingSupport.Companion.log
-import kotlinx.html.currentTimeMillis
+import com.linecorp.cse.scavenger.utils.toEpochMilli
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
+import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
 @Service(Service.Level.PROJECT)
@@ -40,7 +41,7 @@ class ScavengerAdapter {
     private val gson = Gson()
 
     fun fetchCustomers(baseUrl: String): List<Customer> {
-        val nowEpochTime = currentTimeMillis()
+        val nowEpochTime = LocalDateTime.now().toEpochMilli()
         val path = "$baseUrl/${SCAVENGER_CUSTOMER_API_PREFIX}?_=${nowEpochTime}"
         val request = Request.Builder().url(path).build()
 
